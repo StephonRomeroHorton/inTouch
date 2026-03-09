@@ -1,0 +1,446 @@
+/* App Layout */
+.app {
+  display: flex;
+  overflow: hidden;  /* Prevent any overflow outside the app container */
+  height: 100vh;     /* Full height of the viewport */
+  background-color: #fdfcf2;
+}
+.logo{
+  margin-left:1rem;
+}
+.logoHeader{
+  margin-left:1rem;
+  font-size: 1.5rem
+}
+.logsDiv {
+  width: 33.33%;     /* 1/3 of the screen width */
+  flex-shrink: 0;    /* Prevent shrinking */
+  height: 100vh;     /* Full height of the app */
+  overflow-y: scroll; /* Enable vertical scrolling if content overflows */
+}
+
+.log{
+  margin: .5rem;
+  padding: 1rem;
+}
+
+
+
+.newsFormDiv {
+  width: 66.66%;     /* 2/3 of the screen width */
+  height: 100vh;     /* Full height of the app */
+  display: flex;
+  flex-direction: column;  /* Stack formDiv and newsDiv vertically */
+}
+
+.formDiv {
+  flex: 0 0 55%;     /* 55% of the height of newsFormDiv */
+  padding: 20px;
+  overflow: hidden;  /* Prevent scrolling in the formDiv */
+}
+.newsDiv {
+  flex: 0 0 45%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  padding: 20px;
+  white-space: nowrap;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
+
+.articleCard {
+  display: flex;
+  flex-direction: row;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  width: 360px;
+  height: 120px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.articleImage {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.articleContent {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.articleTitle {
+  color: #333;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.articleAuthor {
+  font-size: 0.75em;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.articleDescription {
+  font-size: 0.75em;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.articleLink {
+  font-size: 0.75em;
+  color: #2c6ecb;
+  text-decoration: none;
+  font-weight: bold;
+}
+.feelingTitle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.emotionLog{
+  padding: .3rem;
+  background: #555;
+  border-radius: .5rem;
+  
+}
+.toggleBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.toggleBar button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #eee;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggleBar button:hover {
+  background-color: #ddd;
+}
+
+.activeToggle {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Responsive layout toggle */
+@media (max-width: 1024px) {
+  .logsDiv,
+  .newsFormDiv {
+    width: 100%;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+}
+.floatingToggle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 9999;
+  background: #222;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.floatingToggle:hover {
+  background: #444;
+}
+
+@media (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+    height: auto; /* prevent clipping */
+  }
+
+  .logsDiv,
+  .newsFormDiv {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .logsDiv {
+    flex: none;
+  }
+
+  .newsFormDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+
+  .formDiv {
+    flex: 0 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .newsDiv {
+    flex: 0 0 auto;
+    padding: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 1rem;
+  }
+}
+.emotionContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.emotionHeading {
+  margin-bottom: 0.5rem;
+}
+
+.emotionButton {
+  color: #000;
+  font-weight: bold;
+  padding: 0.6rem 1.3rem;
+  margin: 0.3rem;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.entryForm {
+  flex: 1;
+  overflow: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.textareaGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  min-height: 80px;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.submitButton {
+  padding: 0.7rem 1.5rem;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.successMessage {
+  margin-top: 1rem;
+}
+.newsContainer {
+  padding: 1rem;
+}
+
+.newsHeading {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.logContainer {
+  padding-bottom: 1.5rem;
+}
+
+.logHeading {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.logList {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+.logCard {
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.logTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+
+.logTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.logBadge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  color: #222;
+  font-weight: bold;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logFullTitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+  word-break: break-word;
+}
+
+.logContent {
+  font-size: 0.95rem;
+}
+
+.logTime {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+
+.logoSubheader {
+  font-size: 1rem;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .textareaGroup {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .newsDiv {
+    flex-direction: column;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 1rem;
+  }
+
+  .articleCard {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .articleImage {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .articleContent {
+    padding: 1rem;
+  }
+  .emotionHeading {
+  
+    margin-top:.5rem
+  }
+  .articleTitle,
+  .articleDescription,
+  .articleAuthor {
+    white-space: normal;
+    text-overflow: unset;
+    overflow: visible;
+  }
+}
+.backToTop {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.backToTop:hover {
+  background-color: #444;
+}
+
