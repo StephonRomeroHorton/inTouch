@@ -7,28 +7,31 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
-// Your API routes
+/* ---------------- API ROUTES ---------------- */
 app.use('/quotes', quoteRoutes);
 
-// Serve static files *only* if build folder exists
-const buildPath = path.join(__dirname, 'client', 'build');
-app.use(express.static(buildPath));
-
-// ✅ Corrected wildcard route
-app.use((req, res) => {
-  res.sendFile(path.resolve(buildPath, 'index.html'));
-});
-// MongoDB connection
+/* ---------------- DATABASE ---------------- */
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB Connected'))
   .catch((err) => console.log('❌ MongoDB Error:', err.message));
 
-// Start server
-app.listen(process.env.PORT, () =>
-  console.log(`🚀 Server running on http://localhost:${process.env.PORT}`)
+/* ---------------- FRONTEND ---------------- */
+const buildPath = path.join(__dirname, 'client', 'build');
+
+app.use(express.static(buildPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(buildPath, 'index.html'));
+});
+
+/* ---------------- SERVER ---------------- */
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
 );
 
 

@@ -37,7 +37,9 @@ const LogList = () => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/quotes");
+        const API = process.env.REACT_APP_API_URL
+        console.log(API);
+        const response = await fetch(`${API}/quotes`);
         if (!response.ok) throw new Error('Failed to fetch logs');
         const data = await response.json();
         const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -87,6 +89,7 @@ const LogList = () => {
                   {emoji} <strong>{log.title}</strong>
                 </p>
               )}
+              
 
               <div className={styles.logContent}>
                 <p><strong>Why:</strong> {log.reason || 'No reason provided'}</p>

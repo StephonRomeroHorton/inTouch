@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../style.module.css';
-
+const API = process.env.REACT_APP_API_URL
 const emotionColors = {
   Happy: '#ffe066',
   Sad: '#a0c4ff',
@@ -59,7 +59,7 @@ const EmotionButtons = ({ onColorChange }) => {
 
     try {
       const res = await fetch(
-        'https://a94dfb65-c624-4a69-be4b-6eeb5507c4cd-00-1vjj9aygk7xfy.worf.replit.dev/quotes',
+        `${API}/quotes`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
