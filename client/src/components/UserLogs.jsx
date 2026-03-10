@@ -37,8 +37,7 @@ const LogList = () => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const API = process.env.REACT_APP_API_URL
-        console.log(API);
+        const API = process.env.REACT_APP_API_URL;
         const response = await fetch(`${API}/quotes`);
         if (!response.ok) throw new Error('Failed to fetch logs');
         const data = await response.json();
