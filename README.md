@@ -1,4 +1,4 @@
-InTouch 🌎
+#InTouch 🌎
 
 A minimal social platform where users share how they feel and why — without likes, comments, or engagement metrics.
 
@@ -6,7 +6,7 @@ Built as a full-stack JavaScript application using React, Node.js, Express, and 
 
 🔗 Live Demo: [(https://feelings-app.netlify.app/)]
 
-About The Project
+##About The Project
 
 InTouch is a lightweight semi–social media platform focused on emotional expression rather than engagement.
 
@@ -44,7 +44,7 @@ APIs
 
 Mental Health / News API
 
-Architecture
+##Architecture
 
 The application follows a simple full-stack REST architecture:
 
@@ -58,7 +58,7 @@ User submissions are sent through API routes, stored in MongoDB, and displayed i
 
 The application also integrates a third-party news API to provide mental health related articles alongside user posts.
 
-Features
+##Features
 
 Post how you feel and explain why
 Public feed showing how others feel
@@ -66,7 +66,7 @@ Minimalist design without likes or comments
 Mental health news integration
 Full-stack CRUD architecture
 
-Future Improvements
+##Future Improvements
 
 User authentication
 Mood filtering / sorting
@@ -76,7 +76,7 @@ Mobile optimization
 Custom Emotion Buttons
 ...and more
 
-Why This Project Matters
+##Why This Project Matters
 
 This project demonstrates:
 
@@ -88,11 +88,11 @@ This project demonstrates:
 
 It also reflects the process of revisiting an earlier project idea and rebuilding it with improved architecture and engineering practices.
 
-About
+##About
 
 A minimalist social platform focused on emotional expression and shared human experience. The goal was to take an unfinished early idea and turn it into a complete full-stack application.
 
-Author
+##Author
 
 Stephon Horton
 Full-Stack JavaScript Developer
