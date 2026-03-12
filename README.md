@@ -121,10 +121,3 @@ https://github.com/StephonRomeroHorton
 
 LinkedIn  
 (https://www.linkedin.com/in/stephon-horton)
-Full-Stack JavaScript Developer
-
-GitHub
-https://github.com/StephonRomeroHorton
-
-LinkedIn
-https://www.linkedin.com/in/stephon-horton
