@@ -51,8 +51,17 @@ const LogList = () => {
     };
     fetchLogs();
   }, []);
-
-  if (loading) return <p>Loading logs...</p>;
+  // first update: letting the user know were using renders free tier so they're not surprised
+  if (loading) return (
+    <p>
+      Loading logs...
+      <span
+        style={{ display: 'block', marginTop: '6px', fontSize: '0.9rem', opacity: 0.8 }}
+      >
+        Note: The server runs on Render's free tier and may take a moment to wake up. If logs don't appear, try refreshing.
+      </span>
+    </p>
+  );
   if (error) return <p>Error: {error}</p>;
 
   return (

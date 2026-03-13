@@ -27,9 +27,7 @@ function App() {
       )}
 
       {/* LOGS */}
-      <div
-        className={`${styles.logsDiv} ${isMobile && !showLogs ? styles.hidden : ''}`}
-      >
+      <div className={`${styles.logsDiv} ${isMobile && !showLogs ? styles.hidden : ''}`}>
         <h1 className={styles.logoHeader}>
           🧠 inTouch <span className={styles.logoSubheader}>—-----------</span>
         </h1>
